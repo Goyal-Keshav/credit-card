@@ -26,5 +26,6 @@ def predict_api():
     is_fraud = int(prediction[0] == -1)
     return jsonify({"is_fraud": is_fraud})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# REMOVE the following block for production/gunicorn:
+# if __name__ == '__main__':
+#     app.run(debug=True)
