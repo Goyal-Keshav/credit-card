@@ -3,13 +3,16 @@ from flask_cors import CORS
 import pandas as pd
 import time
 import joblib
+import os
 
 app = Flask(__name__)
 CORS(app)
 
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "model", "fraud_detection_model.pkl")
+SCALER_PATH = os.path.join(os.path.dirname(__file__), "model", "scaler.pkl")
 # Load your trained model and scaler
-model = joblib.load('C:\\Users\\kesha\\Documents\\fraud-detection-system\\backend\\model\\fraud_detection_model.pkl')      # Make sure this path is correct
-scaler = joblib.load('C:\\Users\\kesha\\Documents\\fraud-detection-system\\backend\\model\\scaler.pkl')    # Make sure this path is correct
+model = joblib.load(MODEL_PATH)
+scaler = joblib.load(SCALER_PATH)
 
 @app.route('/predict', methods=['POST'])
 def predict_api():
