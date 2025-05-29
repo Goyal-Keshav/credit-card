@@ -1,0 +1,8 @@
+# This file is used by Python's pip to install required packages for your backend.
+# It was updated to include gunicorn for deployment.
+
+Flask
+flask-cors
+pandas
+joblib
+gunicorn
